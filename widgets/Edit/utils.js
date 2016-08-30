@@ -1,0 +1,4 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define(["dojo/_base/lang","dojo/_base/array"],function(c,d){return{getFieldInfosFromWebmap:function(e,f){var b=null,a=f.getLayerInfoByTopLayerId(e);a&&(a=a.getPopupInfo())&&a.fieldInfos&&(b=c.clone(a.fieldInfos));b&&d.forEach(b,function(a){a.format&&(a.format.dateFormat&&a.format.dateFormat.toLowerCase()&&0<=a.format.dateFormat.toLowerCase().indexOf("time"))&&(a.format.time=!0)});return b}}});

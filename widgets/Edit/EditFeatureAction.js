@@ -1,0 +1,5 @@
+// All material copyright ESRI, All Rights Reserved, unless otherwise specified.
+// See http://js.arcgis.com/3.15/esri/copyright.txt and http://www.arcgis.com/apps/webappbuilder/copyright.txt for details.
+//>>built
+define(["dojo/_base/declare","dojo/_base/array","dojo/Deferred","jimu/BaseFeatureAction","jimu/WidgetManager"],function(f,g,h,k,l){return f(k,{map:null,iconClass:"icon-edit",isFeatureSupported:function(d,b){if(1!==d.features.length||!b)return!1;var c=!1,a=this.appConfig.getConfigElementById(this.widgetId).config;a.editor.layerInfos?0===a.editor.layerInfos.length?c=!0:g.forEach(a.editor.layerInfos,function(a){b.id===a.featureLayer.id&&(c=!0)}):c=!1;return c&&b.isEditable&&b.isEditable()?!0:!1},onExecute:function(d){var b=
+new h,c,a={},e=d.features[0];l.getInstance().triggerWidgetOpen(this.widgetId).then(function(d){c="point"===e.geometry.type?e.geometry:e.geometry.getExtent().getCenter();a.mapPoint=c;a.graphic=e;d.reClickMap(a);b.resolve()});return b.promise}})});
